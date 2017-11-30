@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 set -e
 
+/create-topics.sh &
+
 ## set essential Kafka properties
 KAFKA_PROPS=/kafka/config/server.properties
 echo >> $KAFKA_PROPS
