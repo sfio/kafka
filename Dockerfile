@@ -6,8 +6,8 @@ RUN curl http://www-us.apache.org/dist/zookeeper/zookeeper-3.4.11/zookeeper-3.4.
 	mv zookeeper-3.4.11 /zk &&\
 	mv /zk/conf/zoo_sample.cfg /zk/conf/zoo.cfg
 
-RUN curl http://www-us.apache.org/dist/kafka/1.0.0/kafka_2.11-1.0.0.tgz | tar xz &&\
-	mv kafka_2.11-1.0.0 /kafka
+RUN curl http://www-us.apache.org/dist/kafka/1.0.1/kafka_2.11-1.0.1.tgz | tar xz &&\
+	mv kafka_2.11-1.0.1 /kafka
 
 ADD entry.sh /
 ENTRYPOINT ["/entry.sh"]
