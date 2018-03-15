@@ -38,7 +38,7 @@ if [ "$SILENT" ]; then
 	echo "log4j.logger.org.I0Itec.zkclient.ZkClient=WARN" >> $LOG4J_PROPS
 fi
 
-## daemonize zookepeer
+## start Zookepeer
 /zk/bin/zkServer.sh start
 
 ## start Kafka
