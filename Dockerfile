@@ -7,8 +7,8 @@ RUN curl http://www-us.apache.org/dist/zookeeper/zookeeper-3.4.11/zookeeper-3.4.
 	rm -rf /zk/contrib /zk/dist-maven /zk/docs /zk/src &&\
 	mv /zk/conf/zoo_sample.cfg /zk/conf/zoo.cfg
 
-RUN curl http://www-us.apache.org/dist/kafka/1.0.1/kafka_2.11-1.0.1.tgz | tar xz &&\
-	mv kafka_2.11-1.0.1 /kafka &&\
+RUN curl http://www-us.apache.org/dist/kafka/1.1.0/kafka_2.11-1.1.0.tgz | tar xz &&\
+	mv kafka_2.11-1.1.0 /kafka &&\
 	rm -rf /kafka/site-docs
 
 ADD entry.sh /
