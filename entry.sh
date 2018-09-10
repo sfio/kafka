@@ -39,7 +39,7 @@ if [ "$SILENT" ]; then
 fi
 
 ## start Zookepeer
-/zk/bin/zkServer.sh start
+ZOO_LOG_DIR=/tmp /zk/bin/zkServer.sh start
 
 ## start Kafka
 exec /kafka/bin/kafka-server-start.sh $KAFKA_PROPS
