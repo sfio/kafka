@@ -8,9 +8,9 @@ RUN curl http://www-us.apache.org/dist/zookeeper/zookeeper-3.4.13/zookeeper-3.4.
 	mv /zk/conf/zoo_sample.cfg /zk/conf/zoo.cfg &&\
 	curl http://www-us.apache.org/dist/kafka/1.1.1/kafka_2.11-1.1.1.tgz | tar xz &&\
 	mv kafka_2.11-1.1.1 /kafka &&\
-	rm -rf /kafka/site-docs &&\
-	chown -R 1000:1000 /kafka /zk
+	rm -rf /kafka/site-docs /kafka/bin/windows &&\
+	chmod -R g=u /kafka /zk
 
-USER 1000:1000
+USER 1000
 COPY entry.sh /
 ENTRYPOINT ["/entry.sh"]
