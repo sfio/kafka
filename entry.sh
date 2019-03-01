@@ -14,7 +14,8 @@ for i in $@; do case $i in
 esac; done
 
 ## Generate configs
-KAFKA_PROPS=/kafka/config/server.properties
+cp /kafka/config/server.properties.original /tmp/server.properties
+KAFKA_PROPS=/tmp/server.properties
 echo >> $KAFKA_PROPS
 ## SASL_PLAINTEXT security
 if [ "$PRINCIPAL" ] && [ "$KEYTAB" ] && [ "$KDC" ]; then

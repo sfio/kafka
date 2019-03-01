@@ -14,5 +14,12 @@ ENV PATH=/kafka/bin:${PATH}
 
 EXPOSE 2181 2888 3888 9092
 
+# The entry.sh script needs to modify server.properties.
+# Instead, we move server.properties to server.properties.original,
+# and then we setup server.properties as a symbolic link to /tmp/server.properties.
+# The entry.sh script copies server.properties.original into /tmp, where it can be modified
+RUN mv /kafka/config/server.properties /kafka/config/server.properties.original && \
+      ln -s /tmp/server.properties /kafka/config/server.properties
+
 COPY entry.sh /
 ENTRYPOINT ["/entry.sh"]
