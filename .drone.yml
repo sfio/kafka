@@ -15,7 +15,7 @@ pipeline:
     commands:
       - aws ecr get-login --no-include-email --region us-east-2 | sh
       - git clone https://$${GIT_USER}:$${GIT_PASS}@github.com/opendatagroup/fastscore-test.git
-      - ./fastscore-test/fastest force-integrate local/kafka KAFKA=685917037183.dkr.ecr.us-east-2.amazonaws.com/kafka:build-${DRONE_BUILD_NUMBER}
+      - ./fastscore-test/fastest integrate local/kafka KAFKA=685917037183.dkr.ecr.us-east-2.amazonaws.com/kafka:build-${DRONE_BUILD_NUMBER}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   integrate:
