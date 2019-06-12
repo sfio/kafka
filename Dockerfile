@@ -1,7 +1,7 @@
 FROM alpine:3.9
 
 ## Install Kafka+Zookeeper
-RUN apk --no-cache add bash curl openjdk8-jre-base &&\
+RUN apk --no-cache add bash curl openjdk8-jre-base nss &&\
 	curl http://www-us.apache.org/dist/kafka/2.1.1/kafka_2.12-2.1.1.tgz | tar xz &&\
 	mv kafka_2.12-2.1.1 /kafka &&\
 	rm -rf /kafka/site-docs /kafka/bin/windows &&\
