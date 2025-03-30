@@ -2,8 +2,8 @@ FROM alpine:3.20.6
 
 ## Install Kafka+Zookeeper
 RUN apk --no-cache add bash curl openjdk8-jre-base nss tini krb5 &&\
-	curl https://archive.apache.org/dist/kafka/3.5.2/kafka_2.12-3.5.2.tgz | tar xz &&\
-	mv kafka_2.12-3.5.2 /kafka &&\
+	curl https://archive.apache.org/dist/kafka/3.6.2/kafka_2.12-3.6.2.tgz | tar xz &&\
+	mv kafka_2.12-3.6.2 /kafka &&\
 	rm -rf /kafka/site-docs /kafka/bin/windows &&\
 	chmod -R g=u /kafka &&\
 	rm /usr/bin/nc
