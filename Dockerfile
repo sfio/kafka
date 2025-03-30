@@ -1,7 +1,7 @@
-FROM alpine:3.9
+FROM alpine:3.20.6
 
 ## Install Kafka+Zookeeper
-RUN apk --no-cache add bash curl openjdk8-jre-base nss &&\
+RUN apk --no-cache add bash curl openjdk8-jre-base nss tini krb5 &&\
 	curl https://archive.apache.org/dist/kafka/2.1.1/kafka_2.12-2.1.1.tgz | tar xz &&\
 	mv kafka_2.12-2.1.1 /kafka &&\
 	rm -rf /kafka/site-docs /kafka/bin/windows &&\
@@ -20,4 +20,4 @@ RUN mv /kafka/config/server.properties /kafka/config/server.properties.original 
       ln -s /tmp/server.properties /kafka/config/server.properties
 
 COPY entry.sh /
-ENTRYPOINT ["/entry.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/entry.sh"]
